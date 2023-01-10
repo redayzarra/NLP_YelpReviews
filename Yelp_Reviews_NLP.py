@@ -19,3 +19,9 @@ import numpy as np # NumPy is a package used for numerical analysis
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+"""
+Importing the dataset with the .read_csv method from Pandas to load the dataset. 
+"""
+yelp_reviews = pd.read_csv('yelp.csv') # Importing the dataset with the .read_csv method from Pandas to load the dataset and storing it in the yelp_reviews variable.
+yelp_reviews.head() # The .head() method is used to show the first five rows of the dataframe.
