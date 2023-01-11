@@ -33,3 +33,8 @@ yelp_reviews.describe() # The .describe() method from Pandas gives us a summary 
 yelp_reviews.info() # There are no missing values in our dataset, which is a great thing because our model has more data to work with
 
 print(yelp_reviews['text'][0]) # Allows us to target the 'text' column and access the first review inside
+
+
+"""
+Visualizing the dataset by using the Matplotlib library to 
+"""
