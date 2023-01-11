@@ -36,5 +36,22 @@ print(yelp_reviews['text'][0]) # Allows us to target the 'text' column and acces
 
 
 """
-Visualizing the dataset by using the Matplotlib library to 
+Visualizing the dataset to better understand the dataset. We will count the words 
+in the dataset and add it in a new column in our dataset.
 """
+# Creating a column for length of reviews
+yelp_reviews['length'] = yelp_reviews['text'].apply(len) # Using the .apply(len) function to find the length of every review in the text column
+yelp_reviews # Shows the newly added column
+
+# Creating a histogram for the length column
+sns.histplot(yelp_reviews['length'], bins=150, color='orange', kde=True)
+plt.title("Length of All Reviews")
+plt.xlabel("Length of Reviews")
+plt.ylabel("Number of Reviews")
+
+
+# Exploring the max and min length reviews
+yelp_reviews[yelp_reviews['length'] == 4997]['text'].iloc[0]
+yelp_reviews[yelp_reviews['length'] == 1]['text'].iloc[0]
+
+# 
