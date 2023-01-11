@@ -54,4 +54,9 @@ plt.ylabel("Number of Reviews")
 yelp_reviews[yelp_reviews['length'] == 4997]['text'].iloc[0]
 yelp_reviews[yelp_reviews['length'] == 1]['text'].iloc[0]
 
-# 
+
+# Plotting the star count for reviews
+sns.count(y = 'stars', data = yelp_reviews)
+
+facet = sns.FacetGrid(data = yelp_reviews, col = 'stars', col_wrap = 3)
+facet.map(sns.histplot, 'length', bins = 20, color = 'orange')
