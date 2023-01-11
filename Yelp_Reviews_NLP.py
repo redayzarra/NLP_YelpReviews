@@ -59,4 +59,16 @@ yelp_reviews[yelp_reviews['length'] == 1]['text'].iloc[0]
 sns.count(y = 'stars', data = yelp_reviews)
 
 facet = sns.FacetGrid(data = yelp_reviews, col = 'stars', col_wrap = 3)
-facet.map(sns.histplot, 'length', bins = 20, color = 'orange')
+facet.map(sns.histplot, 'length', bins = 20, color = 'orange') # Created facet graphs for each group of star counts (1 to 5) and their lengths, we can see that the length increases as the number of stars increases
+
+# Create 1 and 5 star datsets
+yelp_reviews_1star = yelp_reviews[yelp_reviews['stars'] == 1]
+yelp_reviews_1star
+
+yelp_reviews_5star = yelp_reviews[yelp_reviews['stars'] == 5]
+yelp_reviews_5star
+
+
+"""
+
+"""
