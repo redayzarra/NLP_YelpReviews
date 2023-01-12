@@ -69,6 +69,21 @@ yelp_reviews_5star = yelp_reviews[yelp_reviews['stars'] == 5]
 yelp_reviews_5star
 
 
+# Concatenating the 1 and 5 star datasets
+yelp_reviews_1_5stars = np.concat([yelp_reviews_1star, yelp_reviews_5star])
+yelp_reviews_1_5stars
+
+
+# Printing their percentage values
+print("1-Star Reviews = ", round((len(yelp_reviews_1star) / len(yelp_reviews_1_5stars)) * 100, 2), "%")
+
+print("5-Star Reviews = ", round((len(yelp_reviews_5star) / len(yelp_reviews_1_5stars)) * 100, 2), "%")
+
+
+# Plotting the 1 and 5 Star reviews
+sns.countplot(x = yelp_reviews_1_5stars['stars'], data = yelp_reviews_1_5stars, label = 'Count')
+
+
 """
 
 """
