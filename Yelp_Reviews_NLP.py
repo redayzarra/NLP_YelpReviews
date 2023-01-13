@@ -135,3 +135,16 @@ from nltk.corpus import stopwords
 stopwords.words('english')
 
 len(stopwords.words('english'))
+
+def removing_stopwords(message):
+  Text_clean = []
+
+  for word in message.split():
+    if word.lower() not in stopwords.words('english'):
+      Text_clean.append(word)
+  return Text_clean
+
+yelp_clean = yelp_nopunc.apply(removing_stopwords)
+print(yelp_clean[0])
+
+
