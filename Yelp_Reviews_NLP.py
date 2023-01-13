@@ -85,5 +85,10 @@ sns.countplot(x = yelp_reviews_1_5stars['stars'], data = yelp_reviews_1_5stars, 
 
 
 """
+To prepare the data for training we need to perform so fundamental natural language
+processing techniques for the dataset to be ready. These techniques clean the data
+and allow the model to interpret it without any unnecessary information clouding 
+the model's performance. 
+
 
 """
