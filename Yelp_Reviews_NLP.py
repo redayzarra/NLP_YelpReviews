@@ -90,5 +90,22 @@ processing techniques for the dataset to be ready. These techniques clean the da
 and allow the model to interpret it without any unnecessary information clouding 
 the model's performance. 
 
+The model is able to interpret data from a matrix of words and their frequency 
+count called a count vectorizer. The count vectorizer essentially contains a list
+of all uncommon words and numbers, as well as how often they occur in each review. 
+For example, if the word "excellent" is used 3 times in a review, the model can 
+most likely predict that the review is a highly rated review. 
 
+For the count vectorizer to work properly, the text needs to be cleaned to remove 
+any punctuation or common (meaningless) words aka stopwords. To remove punctuation
+we will run a for loop to check every character in every review and only keep the
+characters that are not in our list of punctuation. 
+
+Next, the meaningless stop words need to be removed by repeating the same process 
+as before. Use a for loop to check if the word is in our list of stop words, and 
+then only keeping the ones not in the list. 
+
+Finally, we use the cleaned text to create a count vectorizer from our sci-kit 
+learn library class. The count vectorizer will fit around our clean data and then
+transform into a matrix of words and frequencies. 
 """
