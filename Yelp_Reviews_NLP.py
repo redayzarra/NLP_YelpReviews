@@ -109,3 +109,29 @@ Finally, we use the cleaned text to create a count vectorizer from our sci-kit
 learn library class. The count vectorizer will fit around our clean data and then
 transform into a matrix of words and frequencies. 
 """
+# Removing punctuation
+import string
+string.punctuation
+
+def removing_punc(message):
+  Text_punc_removed = []
+
+  for char in message:
+    if char not in string.punctuation:
+      Text_punc_removed.append(char)
+
+  Text_punc_joined = "".join(Text_punc_removed)
+  return Text_punc_joined
+
+
+yelp_nopunc = yelp_reviews['text'].apply(removing_punc)
+yelp_nopunc
+
+
+# Removing stopwords
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+stopwords.words('english')
+
+len(stopwords.words('english'))
