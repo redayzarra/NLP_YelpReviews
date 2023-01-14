@@ -204,5 +204,15 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2) # Spl
 
 
 """
+Train the model on the training dataset that we created previously and fit the 
+multinomial naive bayes classifier to the model
+"""
+from sklearn.naive_bayes import MultinomialNB
+NB_classfier = MultinomialNB()
+
+NB_classifier.fit(X_train, y_train) # Fitting the naive bayes classifier to the training dataset
+
+
+"""
 
 """
