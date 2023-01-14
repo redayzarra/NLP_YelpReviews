@@ -167,5 +167,23 @@ print(yelp_vectorizer.shape) # Our count vectorizer matix has 21,882 unique word
 
 
 """
-
+Applying multinomial naive bayes classification algorithm which is commonly used
+in text classification because it models the feature as multinomials, or discrete
+distributions, with the word frequencies (stored in the count vectorizer). The 
+naive bayes algorithms are popular because they are computationally efficient,
+which is great for text classification, spam filtering, and sentiment analysis.
 """
+from sklearn.naive_bayes import MultinomialNB
+NB_classifier = MultinomialNB() # Importing the naive bayes classifier we will be using for this project from sci-kit learn and then creating the object NB_classifier from the class
+
+label = yelp_reviews_1_5stars['stars'].values
+label # Assigning the variable label to the values in the stars column. This means that label is an array containing star count
+
+# Training on entire dataset (for fun)
+NB_classifier.fit(yelp_vectorizer, label)
+sample = [input()]
+
+testing_sample = vectorizer.transform(sample)
+sample_predict = NB_classifier.predict(testing_sample)
+
+print(sample_predict)
