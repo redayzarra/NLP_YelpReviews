@@ -181,9 +181,28 @@ label # Assigning the variable label to the values in the stars column. This mea
 
 # Training on entire dataset (for fun)
 NB_classifier.fit(yelp_vectorizer, label)
-sample = [input()]
+sample = [input()] # Creating a fun section to test my own reviews on here, it is good at detecting obvious ones but sometimes it gives wrong answers for some of the reviews that are clearly wrong. For example, try typing "I hated eating here, the food was bad" which sounds like a one star review but it thinks it's a four star review
 
 testing_sample = vectorizer.transform(sample)
 sample_predict = NB_classifier.predict(testing_sample)
 
-print(sample_predict)
+print(sample_predict) 
+
+
+"""
+Splitting the dataset into training and testing sets so we can evaluate the model's
+performance after training. 
+"""
+X = yelp_vectorizer
+X.shape # Our features dataset (X) will be the count vectorizer which stores the frequency of all the uncommon words 4,806 reviews
+
+y = label
+y.shape # The dependent variable (y) is the labeled star count for every review
+
+from sklearn.model_selection import train_test_split # Importing the train_test_split function to split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2) # Splitting the data into training and testing sets for features and dependent variables
+
+
+"""
+
+"""
