@@ -254,3 +254,28 @@ The inverse document frequency is the measure of the word's importance:
 """
 # Implement tf-idf
 from sklearn.feature_extraction.text import TfidfTransformer # Import TfidfTransformer class from sci-kit learn to apply the tf-idf to the count vectorizer
+yelp_tfidf = TfidfTransformer() # Initialize the object yelp_tfidf
+
+yelp_tfidf = yelp_tfidf.fit_transform(yelp_vectorizer)
+
+yelp_tfidf.shape # Use .fit_transform function to apply the tf-idf to the count vectorizer and then reassign it to yelp_tfidf.
+
+print(yelp_tfidf) # Contains the tf-idf score for each word in our matrix, this can be used to train the model further
+
+# Training the model
+X = yelp_tfidf
+y = label # Reassigning dataset for splitting the dataset with the tfidf scores
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2) # Splitting the dataset with the tfidf scores
+
+from sklearn.naive_bayes import MultinomialNB
+
+NB_classifier = MultinomialNB()
+NB_classifier.fit(X_train, y_train) # Fitting the naive bayes classifier to the new training dataset
+
+y_predict2 = NB_classifier.predict(X_test) # Storing predictions for the testing set in y_predict2
+# y_predict2
+
+cm = confusion_matrix(y_test, y_predict2)
+sns.heatmap(cm, annot = True) # This model is hindered by the tf-idf scores because there are over 140 incorrect predictions. These samples are misclassified as false positives as seen on the top right square.
