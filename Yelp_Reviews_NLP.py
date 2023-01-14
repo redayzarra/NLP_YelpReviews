@@ -145,6 +145,27 @@ def removing_stopwords(message):
   return Text_clean
 
 yelp_clean = yelp_nopunc.apply(removing_stopwords)
-print(yelp_clean[0])
+print(yelp_clean[0]) # Verifying the first cleaned up review has no punctuation or stopwords
 
 
+"""
+Finally, we use the cleaned text to create a count vectorizer from our sci-kit 
+learn library class. The count vectorizer will fit around our clean data and then 
+transform into a matrix of words and frequencies. It converts text into numerical
+representation by creating a matrix that shows the frequency in occurences of 
+tokenized words. The text input is tokenized into words or n-grams (small groups 
+of words) and then counts each occurence of that group.
+"""
+from sklearn.feature_extraction.text import CountVectorizer
+vectorizer = CountVectorizer() # Importing the CountVectorizer class from sklearn and creating a vectorizer instance object under the class
+
+yelp_vectorizer = vectorizer.fit_transform([" ".join(i) for i in yelp_clean]) # Use the .join() method to join every word in the yelp_clean list back into a review (the words were seperated so we could iterate through them). Then use the .fit_transform() method from the vectorizer class to fit the data to the vectorizer and create the count vectorizer matrix, store the results in yelp_vectorizer
+
+print(vectorizer.get_feature_names_out())
+print(len(vectorizer.get_feature_names_out()))
+print(yelp_vectorizer.shape) # Our count vectorizer matix has 21,882 unique words from 4,086 reviews.
+
+
+"""
+
+"""
