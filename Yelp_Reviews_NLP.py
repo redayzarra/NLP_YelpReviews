@@ -214,5 +214,43 @@ NB_classifier.fit(X_train, y_train) # Fitting the naive bayes classifier to the 
 
 
 """
+Determine the accuracy of the model, visualize the information from confusion 
+matrices and analyze the performance of the model.
+"""
+from sklearn.metrics import classification_report, confusion_matrix # Import the classification_report and the confusion_matrix modules from sci-kit learn
+y_predict = NB_classifier.predict(X_train) # Predict the values for the training set and assign that to the variable y_predict
+
+cm = confusion_matrix(y_train, y_predict)
+sns.heatmap(cm, annot = True) # Create a confusion matrix comparing the training set predicted labels and the true labels, plot the confusion matrix on a heatmap. The top left square refers to the true positive, or positive labels being classfied correctly. The top right square is the number of samples misclassified as false positives. The bottom right square refers to the true negatives, or the number of negative labels identified correctly. The bottom left square is the number of samples misclassified as false negatives.
+
+print(classification_report(y_train, y_predict)) # The model's training accuracy is 97%
+
+y_predict_test = NB_classifier.predict(X_test)
+
+cm2 = confusion_matrix(y_test, y_predict_test)
+sns.heatmap(cm2, annot = True)
+
+print(classification_report(y_test, y_predict_test)) # The model's testing accuracy is 92%.
+
 
 """
+Tf-idf stands for the term frequency-inverse document frequency, which is a 
+numerical statistic that determines the value of a word to the text. In layman 
+terms, how important is a word to the entire document. The formula to determine a 
+word's weight is:
+
+                Weight(word) = TF(word) - IDF(word)
+
+If a word appears many times throughout a document, the word is most likely very 
+meaninful to the document. However, if the same word appears often in other 
+documents than the word might just be a common word. The term frequency is the 
+measure of the frequency of a term in a document:
+
+                Term Frequency = number of word occurences / total number of words
+
+The inverse document frequency is the measure of the word's importance:
+
+                IDF = log(Total number of documents / number of documents with term)
+"""
+# Implement tf-idf
+from sklearn.feature_extraction.text import TfidfTransformer # Import TfidfTransformer class from sci-kit learn to apply the tf-idf to the count vectorizer
