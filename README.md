@@ -42,7 +42,7 @@ If you are not able to install the necessary libraries, I recommend you **use Ju
 This project utilizes a CSV file for loading the dataset. If you have a CSV file full of text that you would like to use, please feel free to use this code to load your dataset in to the file:
 
 ```python
-dataste = pd.read_csv('YOUR-DATA.csv')
+dataset = pd.read_csv('YOUR-DATA.csv')
 ```
 
 
