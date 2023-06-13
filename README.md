@@ -1,9 +1,9 @@
 # Yelp Reviews Classification - Natural Language Processing
 
 ## Overview
-This project covers the topic of natural language processing or NLP to classify user-generated text and determine their intent. The goal of this project is to build a model that can classify 10,000 Yelp reviews into either one-star or 5-star reviews. To accomplish this, the project uses NLP techniques to process and clean the text from the reviews, and then train the model using the clean text. The model is then evaluated and analyzed to measure accuracy and performance.
+This project covers the topic of natural language processing or NLP to classify user-generated text and determine its intent. The goal of this project is to build a model that can classify 10,000 Yelp reviews into either one-star or 5-star reviews. To accomplish this, the project uses NLP techniques to process and clean the text from the reviews, and then train the model using the clean text. The model is then evaluated and analyzed to measure accuracy and performance.
 
-The model is trained on this [dataset](https://github.com/redayzarra/ml-yelpreviews-project/blob/master/yelp.csv), and divided into training and testing sets. The model was originally trained on all 10,000 reviews to classify the reviews to their corresponding star count, however, this proved difficult as the reviews were often meaningless and unpredictable. This project utilizes the data to classify the reviews in either one-star or five-star reviews, the two extremes of the dataset.
+The model is trained on this [dataset](https://github.com/redayzarra/ml-yelpreviews-project/blob/master/yelp.csv), and divided into training and testing sets. The model was originally trained on all 10,000 reviews to classify the reviews to their corresponding star count, however, this proved difficult as the reviews were often meaningless and unpredictable. This project utilizes the data to classify the reviews as either one-star or five-star reviews, the two extremes of the dataset.
 
 The model can then be used to predict the label for new, unseen reviews. This can be especially useful for businesses, as it can help them identify patterns in customer feedback and make improvements to their products or services.
 
